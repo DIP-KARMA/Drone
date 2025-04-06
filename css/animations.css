@@ -1,0 +1,77 @@
+/**
+ * Droner Website Animation Styles
+ * Contains all animation-related styles for 3D effects
+ */
+
+/* Base floating animation for 3D icons */
+.floating-3d-icon {
+    display: inline-block;
+    position: relative;
+    animation: float 3s ease-in-out infinite;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+    will-change: transform, text-shadow;
+}
+
+/* Floating animation keyframes */
+@keyframes float {
+    0% {
+        transform: translateY(0px) translateZ(0);
+    }
+    50% {
+        transform: translateY(-10px) translateZ(10px);
+    }
+    100% {
+        transform: translateY(0px) translateZ(0);
+    }
+}
+
+/* Glow effect for icons */
+.service-icon, .career-icon, .contact-icon, .nav-brand-icon, .fa-drone, .feature-icon {
+    color: #00ccff;
+    text-shadow: 0 0 10px rgba(0, 204, 255, 0.8), 0 0 20px rgba(0, 204, 255, 0.4);
+}
+
+/* Different animation variations for visual diversity */
+.floating-3d-icon:nth-child(2n) {
+    animation-duration: 4s;
+}
+
+.floating-3d-icon:nth-child(3n) {
+    animation-duration: 5s;
+}
+
+.floating-3d-icon:nth-child(5n) {
+    animation-delay: 0.5s;
+}
+
+/* Hover effects */
+.floating-3d-icon:hover {
+    animation-play-state: paused;
+    transform: scale(1.2) translateZ(20px);
+    text-shadow: 0 0 15px rgba(0, 204, 255, 1), 0 0 30px rgba(0, 204, 255, 0.8);
+    z-index: 10;
+}
+
+/* Special effect for navigation brand icon */
+.nav-brand-icon.floating-3d-icon {
+    animation: pulse 2s infinite, float 4s ease-in-out infinite;
+}
+
+/* Pulse animation for brand icon */
+@keyframes pulse {
+    0% { text-shadow: 0 0 5px rgba(0, 204, 255, 0.5); }
+    50% { text-shadow: 0 0 15px rgba(0, 204, 255, 0.8), 0 0 30px rgba(0, 204, 255, 0.4); }
+    100% { text-shadow: 0 0 5px rgba(0, 204, 255, 0.5); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .floating-3d-icon {
+        animation-duration: 4s; /* Slightly slower on mobile */
+    }
+    
+    .floating-3d-icon:hover {
+        transform: scale(1.1) translateZ(10px); /* Less dramatic on mobile */
+    }
+}

@@ -1,0 +1,2446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Droner - Premium Aerial Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&f[]=general-sans@700,600,500,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/animations.css">
+    <style>
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Space Grotesk', sans-serif;
+            color: white;
+            background: linear-gradient(135deg, #000000, #1a1a2e, #000000);
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjA1IiBkPSJNMCAwaDMwMHYzMDBIMHoiLz48L3N2Zz4=');
+            opacity: 0.4;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        /* Section background textures */
+        .services-section {
+            position: relative;
+        }
+        
+        .services-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9IiMwMGNjZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==');
+            opacity: 0.5;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .case-studies-section {
+            position: relative;
+        }
+        
+        .case-studies-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48cGF0aCBkPSJNMCAwaDEwMHYxMDBIMHoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwY2NmZiIgc3Ryb2tlLXdpZHRoPSIwLjUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1Ii8+PC9zdmc+');
+            opacity: 0.5;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .careers-section {
+            position: relative;
+        }
+        
+        .careers-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PHBhdGggZD0iTTAgMGgyMHYyMEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0xMCAxMGw1IDVNMTAgMTBsLTUgNU0xMCAxMGw1IC01TTEwIDEwbC01IC01IiBzdHJva2U9IiMwMGNjZmYiIHN0cm9rZS13aWR0aD0iMC41IiBzdHJva2Utb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==');
+            opacity: 0.5;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .faq-section {
+            position: relative;
+        }
+        
+        .faq-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCI+PGNpcmNsZSBjeD0iMTUiIGN5PSIxNSIgcj0iMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwY2NmZiIgc3Ryb2tlLXdpZHRoPSIwLjUiIHN0cm9rZS1vcGFjaXR5PSIwLjAzIi8+PC9zdmc+');
+            opacity: 0.5;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .about-section {
+            position: relative;
+        }
+        
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDBoNDB2NDBIMHoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwY2NmZiIgc3Ryb2tlLXdpZHRoPSIwLjUiIHN0cm9rZS1vcGFjaXR5PSIwLjA0Ii8+PC9zdmc+');
+            opacity: 0.5;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .contact-section {
+            position: relative;
+        }
+        
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+PHBhdGggZD0iTTMwIDMwbDMwIDMwTTMwIDMwTDAgNjBNMzAgMzBsMzAgLTMwTTMwIDMwTDAgMCIgc3Ryb2tlPSIjMDBjY2ZmIiBzdHJva2Utd2lkdGg9IjAuNSIgc3Ryb2tlLW9wYWNpdHk9IjAuMDMiLz48L3N2Zz4=');
+            opacity: 0.5;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        /* Futuristic Navigation */
+        .futuristic-nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 15, 30, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 8px 20px;
+            width: 80%;
+            max-width: 1200px;
+            z-index: 1000;
+            border: 1px solid rgba(0, 204, 255, 0.15);
+            box-shadow: 0 0 20px rgba(0, 204, 255, 0.1);
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: white;
+            text-shadow: 0 0 8px rgba(0, 204, 255, 0.5);
+            letter-spacing: 0.05em;
+        }
+        
+        .nav-brand-icon {
+            position: relative;
+            font-size: 1.1rem;
+            color: #00ccff;
+            text-shadow: 0 0 10px rgba(0, 204, 255, 0.8), 0 0 20px rgba(0, 204, 255, 0.4);
+            animation: pulse 2s infinite;
+        }
+        
+        .nav-brand-icon::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: transparent;
+            border: 1px solid rgba(0, 204, 255, 0.3);
+            box-shadow: 0 0 10px rgba(0, 204, 255, 0.3);
+            animation: expand 2s infinite alternate;
+            z-index: -1;
+        }
+        
+        @keyframes expand {
+            0% { width: 20px; height: 20px; opacity: 0.3; }
+            100% { width: 28px; height: 28px; opacity: 0; }
+        }
+        
+        @keyframes pulse {
+            0% { text-shadow: 0 0 5px rgba(0, 204, 255, 0.5); }
+            50% { text-shadow: 0 0 15px rgba(0, 204, 255, 0.8); }
+            100% { text-shadow: 0 0 5px rgba(0, 204, 255, 0.5); }
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-family: 'General Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #00ccff;
+        }
+        
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 1px;
+            background: #00ccff;
+            box-shadow: 0 0 8px rgba(0, 204, 255, 0.8);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+        
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            background: linear-gradient(135deg, #000000, #1a1a2e, #000000);
+            overflow: hidden;
+        }
+        
+
+        
+        #drone-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: absolute;
+            top: 10%;
+            left: 5%;
+            z-index: 2;
+            max-width: 400px;
+        }
+        
+        .hero-title {
+            font-family: 'Satoshi', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #22d3ee, #0ea5e9, #2563eb);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(0, 204, 255, 0.3);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        
+        .highlight {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(0, 204, 255, 0), rgba(0, 204, 255, 0.8), rgba(0, 204, 255, 0));
+            animation: lineGlow 3s infinite;
+        }
+        
+        @keyframes lineGlow {
+            0% { opacity: 0.3; box-shadow: 0 0 5px rgba(0, 204, 255, 0.3); }
+            50% { opacity: 1; box-shadow: 0 0 15px rgba(0, 204, 255, 0.7); }
+            100% { opacity: 0.3; box-shadow: 0 0 5px rgba(0, 204, 255, 0.3); }
+        }
+        
+        .book-now-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: rgba(0, 204, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 400;
+            font-size: 0.9rem;
+            border-radius: 50px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 1px solid rgba(0, 204, 255, 0.4);
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.4), inset 0 0 10px rgba(0, 204, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+            animation: buttonPulse 3s infinite;
+        }
+        
+        @keyframes buttonPulse {
+            0% { box-shadow: 0 0 15px rgba(0, 204, 255, 0.4), inset 0 0 10px rgba(0, 204, 255, 0.1); }
+            50% { box-shadow: 0 0 25px rgba(0, 204, 255, 0.6), inset 0 0 15px rgba(0, 204, 255, 0.2); }
+            100% { box-shadow: 0 0 15px rgba(0, 204, 255, 0.4), inset 0 0 10px rgba(0, 204, 255, 0.1); }
+        }
+        
+        .book-now-btn:hover {
+            background: rgba(0, 204, 255, 0.25);
+            border-color: rgba(0, 204, 255, 0.7);
+            box-shadow: 0 0 30px rgba(0, 204, 255, 0.8), inset 0 0 20px rgba(0, 204, 255, 0.3);
+            transform: translateY(-3px);
+            letter-spacing: 2.5px;
+        }
+        
+        .book-now-btn i {
+            margin-left: 8px;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .book-now-btn:hover i {
+            transform: translateX(5px);
+        }
+        
+        .quick-book-text {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(0, 204, 255, 0.3);
+            animation: fadeInOut 3s infinite;
+            text-align: center;
+            display: block;
+            width: 100%;
+        }
+        
+        @keyframes fadeInOut {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+        
+        .section {
+            padding: 80px 10%;
+        }
+        
+        .booking-section {
+            position: relative;
+            overflow: hidden;
+            background: transparent;
+        }
+        
+        .section-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-title {
+            font-family: 'Satoshi', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 50px;
+            text-align: center;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+            color: white;
+        }
+        
+        .section-title::before {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ccff, transparent);
+            box-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #00ccff;
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.8);
+            animation: pulseDot 3s infinite;
+        }
+        
+        @keyframes pulseDot {
+            0% { box-shadow: 0 0 10px rgba(0, 204, 255, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(0, 204, 255, 0.8); }
+            100% { box-shadow: 0 0 10px rgba(0, 204, 255, 0.5); }
+        }
+        
+        .about-card {
+            background: rgba(15, 20, 40, 0.4);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 60px;
+            border: 1px solid rgba(0, 204, 255, 0.2);
+            box-shadow: 0 0 30px rgba(0, 204, 255, 0.1), inset 0 0 30px rgba(0, 204, 255, 0.05);
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            transform: perspective(1000px) rotateX(2deg);
+        }
+        
+        .about-card::before,
+        .about-card::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            filter: blur(60px);
+            z-index: -1;
+            opacity: 0.4;
+            animation: floatGlow 8s infinite alternate ease-in-out;
+        }
+        
+        .about-card::before {
+            top: -100px;
+            right: -100px;
+            background: radial-gradient(circle, rgba(0, 204, 255, 0.3), transparent 70%);
+        }
+        
+        .about-card::after {
+            bottom: -100px;
+            left: -100px;
+            background: radial-gradient(circle, rgba(85, 102, 221, 0.3), transparent 70%);
+        }
+        
+        @keyframes floatGlow {
+            0% { transform: translate(0, 0); opacity: 0.3; }
+            100% { transform: translate(20px, -20px); opacity: 0.5; }
+        }
+        
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 100px;
+            height: 100px;
+            background: rgba(0, 204, 255, 0.1);
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: -1;
+        }
+        
+        .about-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 0.5px;
+        }
+        
+        .about-text strong {
+            font-weight: 500;
+            color: #ffffff;
+            letter-spacing: 0.7px;
+        }
+        
+        .certifications {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+            position: relative;
+        }
+        
+        .certifications::before {
+            content: '';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 204, 255, 0.5), transparent);
+        }
+        
+        .certification-badge {
+            background: rgba(0, 204, 255, 0.1);
+            padding: 12px 22px;
+            border-radius: 50px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(0, 204, 255, 0.2);
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .certification-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: all 0.5s ease;
+        }
+        
+        .certification-badge:hover::before {
+            left: 100%;
+        }
+        
+        .certification-badge:hover {
+            background: rgba(0, 204, 255, 0.15);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 204, 255, 0.15);
+        }
+        
+        /* 3D Moving Icons Styles */
+        .service-icon, .career-icon, .contact-icon {
+            font-size: 2.5rem;
+            color: #00ccff;
+            text-shadow: 0 0 15px rgba(0, 204, 255, 0.7);
+            animation: iconFloat 6s infinite ease-in-out;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        @keyframes iconFloat {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(10deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+        
+        /* Services Section Styles */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .service-card {
+            background: rgba(15, 20, 40, 0.4);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(0, 204, 255, 0.2);
+            box-shadow: 0 0 30px rgba(0, 204, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            transform: perspective(1000px) rotateX(2deg);
+        }
+        
+        .service-card:hover {
+            transform: perspective(1000px) rotateX(0deg) translateY(-10px);
+            border-color: rgba(0, 204, 255, 0.4);
+            box-shadow: 0 0 40px rgba(0, 204, 255, 0.2);
+        }
+        
+        .service-title {
+            font-family: 'Satoshi', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .service-description {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 25px;
+        }
+        
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            color: #00ccff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .service-link i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-link:hover {
+            color: white;
+        }
+        
+        .service-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Case Studies Section Styles */
+        .case-studies-slider {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .case-study-slide {
+            background: rgba(15, 20, 40, 0.4);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 204, 255, 0.2);
+            box-shadow: 0 0 30px rgba(0, 204, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            transform: perspective(1000px) rotateX(2deg);
+        }
+        
+        .case-study-slide:hover {
+            transform: perspective(1000px) rotateX(0deg) translateY(-10px);
+            border-color: rgba(0, 204, 255, 0.4);
+            box-shadow: 0 0 40px rgba(0, 204, 255, 0.2);
+        }
+        
+        .case-study-image-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .case-study-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .case-study-slide:hover .case-study-image {
+            transform: scale(1.05);
+        }
+        
+        .case-study-content {
+            padding: 25px;
+        }
+        
+        .case-study-tag {
+            display: inline-block;
+            padding: 5px 12px;
+            background: rgba(0, 204, 255, 0.1);
+            color: #00ccff;
+            font-size: 0.7rem;
+            font-weight: 500;
+            border-radius: 50px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(0, 204, 255, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .case-study-title {
+            font-family: 'Satoshi', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .case-study-description {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 25px;
+        }
+        
+        .case-study-link {
+            display: inline-flex;
+            align-items: center;
+            color: #00ccff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .case-study-link i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .case-study-link:hover {
+            color: white;
+        }
+        
+        .case-study-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Careers Section Styles */
+        .careers-section {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(10, 15, 30, 0.7));
+            position: relative;
+        }
+        
+        .section-subtitle {
+            font-family: 'General Sans', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 700px;
+            margin: 0 auto 50px;
+            text-align: center;
+        }
+        
+        .careers-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .career-highlight-card {
+            background: rgba(15, 20, 40, 0.4);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 35px;
+            text-align: center;
+            border: 1px solid rgba(0, 204, 255, 0.2);
+            box-shadow: 0 0 30px rgba(0, 204, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            transform: translateZ(0);
+        }
+        
+        .career-highlight-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #00ccff, #0066ff);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .career-highlight-card:hover {
+            transform: translateY(-15px) rotateX(5deg) translateZ(20px);
+            border-color: rgba(0, 204, 255, 0.4);
+            box-shadow: 0 0 40px rgba(0, 204, 255, 0.3);
+        }
+        
+        .career-highlight-card:hover::before {
+            opacity: 1;
+        }
+        
+        .highlight-title {
+            font-family: 'Satoshi', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .highlight-description {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .positions-title {
+            font-family: 'Satoshi', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: white;
+            text-align: center;
+        }
+        
+        .position-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .position-item {
+            background: rgba(15, 20, 40, 0.4);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba(0, 204, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .position-item:hover {
+            border-color: rgba(0, 204, 255, 0.4);
+            box-shadow: 0 0 20px rgba(0, 204, 255, 0.2);
+        }
+        
+        .position-name {
+            font-family: 'Satoshi', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+        }
+        
+        .position-type {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            background: rgba(0, 204, 255, 0.1);
+            padding: 3px 10px;
+            border-radius: 50px;
+            border: 1px solid rgba(0, 204, 255, 0.2);
+        }
+        
+        .position-link {
+            color: #00ccff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .position-link i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .position-link:hover {
+            color: white;
+        }
+        
+        .position-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* FAQ Section Styles */
+        .faq-container {
+            max-width: 800px;
+            margin: 50px auto 0;
+        }
+        
+        .faq-item {
+            background: rgba(15, 20, 40, 0.4);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 204, 255, 0.2);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            margin-bottom: 20px;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            position: relative;
+            transform: translateZ(0);
+        }
+        
+        .faq-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00ccff, #0066ff);
+            transition: width 0.4s ease;
+            z-index: 1;
+        }
+        
+        .faq-item:hover {
+            border-color: rgba(0, 204, 255, 0.4);
+            box-shadow: 0 0 25px rgba(0, 204, 255, 0.2);
+            transform: translateY(-5px) translateZ(10px);
+        }
+        
+        .faq-item:hover::before {
+            width: 100%;
+        }
+        
+        .faq-question {
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .question-text {
+            font-family: 'Satoshi', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: white;
+            flex-grow: 1;
+        }
+        
+        .toggle-icon {
+            color: #00ccff;
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+        }
+        
+        .faq-answer-content {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            padding-bottom: 20px;
+        }
+        
+        .faq-item.active .toggle-icon {
+            transform: rotate(45deg);
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding-top: 0;
+            padding-bottom: 20px;
+        }
+        
+        .faq-item.active {
+            border-color: rgba(0, 204, 255, 0.4);
+            box-shadow: 0 0 20px rgba(0, 204, 255, 0.2);
+        }
+        
+        /* CTA Button Styles */
+        .section-cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: rgba(0, 204, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 400;
+            font-size: 0.9rem;
+            border-radius: 50px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 1px solid rgba(0, 204, 255, 0.4);
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.4), inset 0 0 10px rgba(0, 204, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+        
+        .cta-button:hover {
+            background: rgba(0, 204, 255, 0.25);
+            border-color: rgba(0, 204, 255, 0.7);
+            box-shadow: 0 0 30px rgba(0, 204, 255, 0.8), inset 0 0 20px rgba(0, 204, 255, 0.3);
+            transform: translateY(-3px);
+            letter-spacing: 2.5px;
+        }
+        
+        .cta-button i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .cta-button:hover i {
+            transform: translateX(5px);
+        }
+        
+        .certification-badge i {
+            color: #00ccff;
+            font-size: 0.9rem;
+            text-shadow: 0 0 5px rgba(0, 204, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .certification-badge:hover i {
+            transform: rotate(15deg) scale(1.2);
+            text-shadow: 0 0 10px rgba(0, 204, 255, 0.8);
+        }
+        
+        .premium-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.05));
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            color: rgba(255, 215, 0, 0.9);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .premium-badge i {
+            color: rgba(255, 215, 0, 0.9);
+            font-size: 0.8rem;
+        }
+        
+        .contact-section {
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: transparent;
+            padding: 100px 0;
+        }
+        
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at bottom, rgba(0, 204, 255, 0.05) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        .contact-container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .contact-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 204, 255, 0.1), transparent 70%);
+            border-radius: 50%;
+            filter: blur(50px);
+            z-index: -1;
+            animation: rotateGlow 20s infinite linear;
+        }
+        
+        @keyframes rotateGlow {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.5s ease;
+            background: rgba(15, 20, 40, 0.3);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(0, 204, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 204, 255, 0.05);
+            width: 200px;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+            transform: perspective(1000px) rotateY(5deg);
+        }
+        
+        .contact-link::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+        }
+        
+        .contact-link:hover {
+            color: #00ccff;
+            transform: perspective(1000px) rotateY(0deg) translateY(-15px) translateZ(20px);
+            box-shadow: 0 20px 40px rgba(0, 204, 255, 0.3);
+            border-color: rgba(0, 204, 255, 0.5);
+        }
+        
+        .contact-link:hover::after {
+            opacity: 1;
+        }
+        
+        .contact-link:hover::before {
+            top: 100%;
+            left: 100%;
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #00ccff;
+            text-shadow: 0 0 15px rgba(0, 204, 255, 0.7);
+            transition: all 0.3s ease;
+            animation: iconFloat 3s infinite alternate ease-in-out;
+        }
+        
+        .contact-link span {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-link:hover span {
+            transform: scale(1.1);
+            letter-spacing: 1.5px;
+        }
+        
+        .contact-link span::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 1px;
+            background: #00ccff;
+            transition: width 0.3s ease;
+        }
+        
+        .contact-link:hover span::after {
+            width: 100%;
+        }
+        
+        @keyframes iconFloat {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+        
+        .contact-link:hover .contact-icon {
+            transform: scale(1.2);
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(0, 204, 255, 1);
+        }
+        
+        .footer {
+            background-color: #000000;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        .footer-text {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        #loading { 
+            position: fixed; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            color: white; 
+            text-align: center; 
+            z-index: 100; 
+        }
+        
+        .progress-container {
+            width: 300px;
+            height: 10px;
+            background-color: #333;
+            margin-top: 20px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: #00ccff;
+            transition: width 0.3s;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 60px 5%;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="loading">
+        <h2>Loading 3D Drone Model...</h2>
+        <div class="progress-container">
+            <div class="progress-bar" id="progress"></div>
+        </div>
+    </div>
+    
+    <!-- Navigation Bar -->
+    <nav class="futuristic-nav">
+        <div class="nav-brand"><i class="fas fa-drone nav-brand-icon"></i> DRONER</div>
+        <ul class="nav-links">
+            <li><a href="services.html">Services</a></li>
+            <li><a href="fleet.html">Fleet</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="booking.html">Bookings</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Hero Section with 3D Drone -->
+    <section class="hero-section">
+        <div id="drone-canvas"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">A NEW ERA OF ELEVATION</h1>
+            <a href="booking.html" class="book-now-btn"><strong>Book Now</strong> <i class="fas fa-arrow-right"></i></a>
+
+        </div>
+    </section>
+    
+    <!-- Booking Section -->
+
+    
+    <!-- Services Section -->
+    <section class="section services-section" id="services">
+        <div class="section-content">
+            <h2 class="section-title">Our Premium Services</h2>
+            <div class="services-grid">
+                <div class="service-card premium-card">
+                    <div class="service-icon-container">
+                        <i class="fas fa-camera service-icon floating-3d-icon" data-depth="0.15" data-rotation="2"></i>
+                    </div>
+                    <h3 class="service-title">Premium Aerial Photography</h3>
+                    <p class="service-description">Capture breathtaking perspectives with our industry-leading 8K drone photography. Transform ordinary scenes into extraordinary visual experiences.</p>
+                    <ul class="service-features">
+                        <li>Ultra-high resolution 8K imagery</li>
+                        <li>Advanced HDR processing</li>
+                        <li>Professional color grading</li>
+                    </ul>
+                    <a href="services.html" class="service-link">Explore Service <i class="fas fa-arrow-right floating-3d-icon" data-depth="0.1" data-rotation="-0.5"></i></a>
+                </div>
+                <div class="service-card premium-card">
+                    <div class="service-icon-container">
+                        <i class="fas fa-video service-icon floating-3d-icon" data-depth="0.15" data-rotation="-2"></i>
+                    </div>
+                    <h3 class="service-title">Cinematic Aerial Filmmaking</h3>
+                    <p class="service-description">Transform your vision into cinematic reality with our award-winning aerial videography. From dynamic tracking shots to breathtaking reveals.</p>
+                    <ul class="service-features">
+                        <li>4K/6K professional footage</li>
+                        <li>Cinematic flight patterns</li>
+                        <li>Director-monitored live feed</li>
+                    </ul>
+                    <a href="services.html" class="service-link">Explore Service <i class="fas fa-arrow-right floating-3d-icon" data-depth="0.1" data-rotation="-0.5"></i></a>
+                </div>
+                <div class="service-card premium-card">
+                    <div class="service-icon-container">
+                        <i class="fas fa-map-marked-alt service-icon floating-3d-icon" data-depth="0.15" data-rotation="3"></i>
+                    </div>
+                    <h3 class="service-title">Precision Mapping & Modeling</h3>
+                    <p class="service-description">Harness the power of centimeter-accurate aerial data for your most demanding projects. Our advanced mapping solutions deliver precise 3D models.</p>
+                    <ul class="service-features">
+                        <li>RTK/PPK precision technology</li>
+                        <li>Detailed 3D point cloud generation</li>
+                        <li>Comprehensive GIS integration</li>
+                    </ul>
+                    <a href="services.html" class="service-link">Explore Service <i class="fas fa-arrow-right floating-3d-icon" data-depth="0.1" data-rotation="-0.5"></i></a>
+                </div>
+            </div>
+            <div class="section-cta">
+                <a href="services.html" class="cta-button">View All Services <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Case Studies Section -->
+    <section class="section case-studies-section" id="case-studies">
+        <div class="section-content">
+            <h2 class="section-title">Featured Case Studies</h2>
+            <p class="section-subtitle">Discover how our cutting-edge drone solutions have delivered exceptional results for our clients</p>
+            <div class="case-studies-slider">
+                <div class="case-study-slide">
+                    <div class="case-study-image-container">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Real Estate Aerial Photography" class="case-study-image">
+                    </div>
+                    <div class="case-study-content">
+                        <span class="case-study-tag">Real Estate</span>
+                        <h3 class="case-study-title">Luxury Highrise Marketing</h3>
+                        <p class="case-study-description">Increased property inquiries by 78% through stunning aerial footage.</p>
+                        <a href="casestudies.html" class="case-study-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="case-study-slide">
+                    <div class="case-study-image-container">
+                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Bridge Inspection" class="case-study-image">
+                    </div>
+                    <div class="case-study-content">
+                        <span class="case-study-tag">Infrastructure</span>
+                        <h3 class="case-study-title">Bridge Structural Assessment</h3>
+                        <p class="case-study-description">Identified critical issues invisible to ground inspectors, saving ₹1.2 crore.</p>
+                        <a href="casestudies.html" class="case-study-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="section-cta">
+                <a href="casestudies.html" class="cta-button">View All Case Studies <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Careers Section -->
+    <section class="section careers-section" id="careers">
+        <div class="section-content">
+            <h2 class="section-title">Join Our Team</h2>
+            <p class="section-subtitle">Be part of the elite team shaping the future of aerial technology and pioneering innovative drone applications</p>
+            <div class="careers-highlights">
+                <div class="career-highlight-card">
+                    <i class="fas fa-rocket career-icon"></i>
+                    <h3 class="highlight-title">Innovation-Driven</h3>
+                    <p class="highlight-description">Work with cutting-edge drone technology and contribute to pioneering solutions.</p>
+                </div>
+                <div class="career-highlight-card">
+                    <i class="fas fa-users career-icon"></i>
+                    <h3 class="highlight-title">Collaborative Culture</h3>
+                    <p class="highlight-description">Join a diverse team of experts passionate about pushing boundaries.</p>
+                </div>
+                <div class="career-highlight-card">
+                    <i class="fas fa-chart-line career-icon"></i>
+                    <h3 class="highlight-title">Growth Opportunities</h3>
+                    <p class="highlight-description">Develop your skills in a rapidly expanding industry with clear advancement paths.</p>
+                </div>
+            </div>
+            <div class="open-positions">
+                <h3 class="positions-title">Current Openings</h3>
+                <div class="position-list">
+                    <div class="position-item">
+                        <h4 class="position-name">Drone Pilot</h4>
+                        <span class="position-type">Full-time</span>
+                        <a href="career.html" class="position-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="position-item">
+                        <h4 class="position-name">Aerial Photographer</h4>
+                        <span class="position-type">Full-time</span>
+                        <a href="career.html" class="position-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="position-item">
+                        <h4 class="position-name">Data Analyst</h4>
+                        <span class="position-type">Full-time</span>
+                        <a href="career.html" class="position-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="section-cta">
+                <a href="career.html" class="cta-button">View All Positions <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="section faq-section" id="faq">
+        <div class="section-content">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Find answers to common questions about our premium drone services and solutions</p>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div class="question-text">What types of drone services do you offer?</div>
+                        <div class="toggle-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            We offer a comprehensive range of drone services including aerial photography and videography, real estate showcases, mapping and surveying, infrastructure inspections, event coverage, and specialized missions.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div class="question-text">How do I book a drone service?</div>
+                        <div class="toggle-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Booking is simple! You can book directly through our website by visiting the Bookings page and filling out the form with your details, preferred date, and service type.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div class="question-text">How much do your drone services cost?</div>
+                        <div class="toggle-icon"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Our standard service fee is ₹3,000 per session, which includes basic drone operations for up to 2 hours. Custom quotes are available for specialized services.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-cta">
+                <a href="faqpage.html" class="cta-button">View All FAQs <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="section-content">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-card">
+                <div class="premium-badge"><i class="fas fa-crown"></i> PREMIUM SERVICE</div>
+                <p class="about-text">We deliver sophisticated aerial solutions with unparalleled precision and elegance. Our fleet of advanced drones is operated by <strong>elite, licensed professionals</strong> using <strong>proprietary technology</strong> that exceeds industry standards. As an exclusive partner of <strong>DJI Enterprise</strong> and holding advanced <strong>Federal Aviation Administration</strong> certifications, we provide premium aerial services that blend <strong>cutting-edge innovation</strong> with meticulous attention to detail.</p>
+                <div class="certifications">
+                    <div class="certification-badge"><i class="fas fa-certificate"></i> FAA Part 107 Certified</div>
+                    <div class="certification-badge"><i class="fas fa-shield-alt"></i> Fully Insured Operations</div>
+                    <div class="certification-badge"><i class="fas fa-award"></i> DJI Enterprise Partner</div>
+                    <div class="certification-badge"><i class="fas fa-check-circle"></i> ISO 9001 Certified</div>
+                    <div class="certification-badge"><i class="fas fa-bolt"></i> Advanced Flight Systems</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="contact-container">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-subtitle">Reach out to our expert team for personalized drone service consultations</p>
+            <div class="contact-links">
+                <a href="https://wa.me/1234567890" class="contact-link">
+                    <i class="fab fa-whatsapp contact-icon"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="mailto:info@skyflydrones.com" class="contact-link">
+                    <i class="far fa-envelope contact-icon"></i>
+                    <span>Email</span>
+                </a>
+                <a href="tel:+1234567890" class="contact-link">
+                    <i class="fas fa-phone-alt contact-icon"></i>
+                    <span>+123 456 7890</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">© 2025 Droner. All rights reserved. | Premium Drone Solutions</p>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+    <script>
+        // Scene setup with enhanced visuals
+        const scene = new THREE.Scene();
+        // Narrower FOV (60 instead of 75) to make the drone appear larger and fill more of the screen
+        const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+        
+        // Use alpha and better antialias for transparent effects
+        const renderer = new THREE.WebGLRenderer({ 
+            antialias: true,
+            alpha: true,
+            powerPreference: "high-performance"
+        });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setClearColor(0x000000, 0); // Transparent background to show CSS gradient
+        renderer.setPixelRatio(window.devicePixelRatio);
+        document.getElementById('drone-canvas').appendChild(renderer.domElement);
+        
+        // Add fog for depth and atmosphere
+        scene.fog = new THREE.FogExp2(0x000000, 0.035);
+
+        // Enhanced lighting setup for dramatic effect
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        scene.add(ambientLight);
+
+        // Main key light
+        const directionalLight1 = new THREE.DirectionalLight(0xffffff, 1.2);
+        directionalLight1.position.set(5, 8, 5);
+        scene.add(directionalLight1);
+
+        // Fill light
+        const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.8);
+        directionalLight2.position.set(-5, -2, -5);
+        scene.add(directionalLight2);
+
+        // Dramatic blue spotlight from above
+        const spotLight = new THREE.SpotLight(0x0088ff, 1.5);
+        spotLight.position.set(0, 10, 0);
+        spotLight.angle = Math.PI / 4;
+        spotLight.penumbra = 0.2;
+        spotLight.decay = 1.5;
+        spotLight.distance = 200;
+        scene.add(spotLight);
+        
+        // Add subtle red accent light from below
+        const accentLight = new THREE.PointLight(0xff3333, 0.5);
+        accentLight.position.set(0, -5, 0);
+        accentLight.distance = 20;
+        accentLight.decay = 2;
+        scene.add(accentLight);
+        
+        // Create particle system for ambient floating particles - adjusted for larger drone
+        function createParticles() {
+            const particleCount = 1500; // More particles for better effect with larger drone
+            const particles = new THREE.BufferGeometry();
+            const positions = new Float32Array(particleCount * 3);
+            const colors = new Float32Array(particleCount * 3);
+            
+            for (let i = 0; i < particleCount * 3; i += 3) {
+                // Position particles closer to the drone and in a larger volume
+                // Create two layers of particles - some close to the drone, some further out
+                let radius;
+                if (i % 6 === 0) { // 1/3 of particles close to the drone
+                    radius = 8 + Math.random() * 8; // Closer to drone
+                } else { // 2/3 of particles further out
+                    radius = 16 + Math.random() * 16; // Further from drone
+                }
+                
+                const theta = Math.random() * Math.PI * 2;
+                const phi = Math.random() * Math.PI;
+                
+                positions[i] = radius * Math.sin(phi) * Math.cos(theta);
+                positions[i + 1] = radius * Math.sin(phi) * Math.sin(theta);
+                positions[i + 2] = radius * Math.cos(phi);
+                
+                // Blue-cyan color scheme with varying brightness
+                colors[i] = 0.1 + Math.random() * 0.2;     // R
+                colors[i + 1] = 0.5 + Math.random() * 0.5; // G
+                colors[i + 2] = 0.8 + Math.random() * 0.2; // B
+            }
+            
+            particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            particles.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+            
+            const particleMaterial = new THREE.PointsMaterial({
+                size: 0.08, // Larger particles for better visibility
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.6,
+                blending: THREE.AdditiveBlending
+            });
+            
+            const particleSystem = new THREE.Points(particles, particleMaterial);
+            scene.add(particleSystem);
+            
+            return particleSystem;
+        }
+        
+        const particles = createParticles();
+
+        // Controls setup - adjusted for much larger drone (60% of screen)
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.screenSpacePanning = true;
+        controls.minDistance = 6;  // Prevent getting too close
+        controls.maxDistance = 15; // Prevent getting too far
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 0.3; // Slower rotation for more dramatic effect with larger drone
+        
+        // Initial camera position - adjusted for the 4.5x larger drone
+        camera.position.set(8, 3, 10);
+        controls.target.set(0, 0, 0);
+        controls.update();
+
+        // Loading elements
+        const loadingElement = document.getElementById('loading');
+        const progressBar = document.getElementById('progress');
+
+        // Create an ultra-sophisticated premium futuristic drone using Three.js geometries
+        function createDrone() {
+            const drone = new THREE.Group();
+            
+            // Define premium materials for a high-end futuristic look with grey-blue color scheme
+            const mainBodyMaterial = new THREE.MeshPhongMaterial({ 
+                color: 0x7a8a9a,  // Premium steel blue-grey
+                specular: 0xaaccee,
+                shininess: 180,
+                reflectivity: 1.0
+            });
+            
+            const secondaryMaterial = new THREE.MeshPhongMaterial({ 
+                color: 0x546a7a,  // Medium blue-grey for contrast
+                specular: 0x99bbdd,
+                shininess: 160
+            });
+            
+            const accentMaterial = new THREE.MeshPhongMaterial({ 
+                color: 0x2a3a4a,  // Dark blue-grey for accents
+                specular: 0x7799bb,
+                shininess: 200
+            });
+            
+            const carbonFiberMaterial = new THREE.MeshPhongMaterial({ 
+                color: 0x1a2530,  // Deep blue-grey carbon fiber
+                specular: 0x445566,
+                shininess: 140
+            });
+            
+            const titaniumMaterial = new THREE.MeshPhongMaterial({ 
+                color: 0xc0c8d0,  // Titanium blue-grey
+                specular: 0xffffff,
+                shininess: 350
+            });
+            
+            const chromeMaterial = new THREE.MeshPhongMaterial({ 
+                color: 0xd8e0e8,  // Bluish chrome
+                specular: 0xffffff,
+                shininess: 300
+            });
+            
+            const blueGlowMaterial = new THREE.MeshPhongMaterial({ 
+                color: 0x00ccff,  // Ice blue glow
+                emissive: 0x00ccff,
+                emissiveIntensity: 0.8,
+                shininess: 120
+            });
+            
+            const tealGlowMaterial = new THREE.MeshPhongMaterial({ 
+                color: 0x00dddd,  // Teal glow
+                emissive: 0x00dddd,
+                emissiveIntensity: 0.7,
+                shininess: 110
+            });
+            
+            const indigoGlowMaterial = new THREE.MeshPhongMaterial({ 
+                color: 0x5566dd,  // Indigo blue glow
+                emissive: 0x5566dd,
+                emissiveIntensity: 0.6,
+                shininess: 100
+            });
+            
+            const darkBlueMaterial = new THREE.MeshPhongMaterial({ 
+                color: 0x003366,  // Dark blue for contrast elements
+                specular: 0x6699cc,
+                shininess: 150
+            });
+            
+            // Create a more sophisticated hollow frame design instead of a solid body
+            // Central core hub - smaller and more detailed
+            const coreHubGeometry = new THREE.CylinderGeometry(0.3, 0.3, 0.2, 16);
+            const coreHub = new THREE.Mesh(coreHubGeometry, mainBodyMaterial);
+            coreHub.rotation.x = Math.PI / 2;
+            drone.add(coreHub);
+            
+            // Add premium carbon fiber inlay on core hub
+            const coreInlayGeometry = new THREE.CylinderGeometry(0.32, 0.32, 0.08, 16);
+            const coreInlay = new THREE.Mesh(coreInlayGeometry, carbonFiberMaterial);
+            coreInlay.rotation.x = Math.PI / 2;
+            coreInlay.position.y = 0.05;
+            drone.add(coreInlay);
+            
+            // Add glowing ring around core
+            const coreRingGeometry = new THREE.TorusGeometry(0.33, 0.02, 16, 32);
+            const coreRing = new THREE.Mesh(coreRingGeometry, blueGlowMaterial);
+            coreRing.rotation.y = Math.PI / 2;
+            drone.add(coreRing);
+            
+            // Create structural frame elements instead of solid body
+            const framePositions = [
+                { start: { x: 0.3, y: 0, z: 0 }, end: { x: 0.8, y: 0, z: 0.5 } },
+                { start: { x: -0.3, y: 0, z: 0 }, end: { x: -0.8, y: 0, z: 0.5 } },
+                { start: { x: 0.3, y: 0, z: 0 }, end: { x: 0.8, y: 0, z: -0.5 } },
+                { start: { x: -0.3, y: 0, z: 0 }, end: { x: -0.8, y: 0, z: -0.5 } },
+                { start: { x: 0, y: 0.15, z: 0 }, end: { x: 0, y: 0.3, z: 0.7 } },
+                { start: { x: 0, y: 0.15, z: 0 }, end: { x: 0, y: 0.3, z: -0.7 } },
+                { start: { x: 0, y: -0.15, z: 0 }, end: { x: 0, y: -0.3, z: 0.7 } },
+                { start: { x: 0, y: -0.15, z: 0 }, end: { x: 0, y: -0.3, z: -0.7 } }
+            ];
+            
+            // Create frame struts
+            framePositions.forEach((pos, index) => {
+                // Calculate direction and length
+                const direction = {
+                    x: pos.end.x - pos.start.x,
+                    y: pos.end.y - pos.start.y,
+                    z: pos.end.z - pos.start.z
+                };
+                
+                const length = Math.sqrt(
+                    direction.x * direction.x + 
+                    direction.y * direction.y + 
+                    direction.z * direction.z
+                );
+                
+                // Create strut
+                const strutGeometry = new THREE.CylinderGeometry(0.06, 0.08, length, 8);
+                const strut = new THREE.Mesh(strutGeometry, secondaryMaterial);
+                
+                // Position at midpoint
+                strut.position.set(
+                    pos.start.x + direction.x / 2,
+                    pos.start.y + direction.y / 2,
+                    pos.start.z + direction.z / 2
+                );
+                
+                // Orient along the direction
+                strut.lookAt(pos.end.x, pos.end.y, pos.end.z);
+                strut.rotateX(Math.PI / 2);
+                
+                drone.add(strut);
+                
+                // Add chrome accent rings on struts
+                const ringGeometry = new THREE.TorusGeometry(0.07, 0.01, 8, 16);
+                const ring1 = new THREE.Mesh(ringGeometry, chromeMaterial);
+                const ring2 = new THREE.Mesh(ringGeometry, chromeMaterial);
+                
+                // Position rings at 1/3 and 2/3 along the strut
+                const ring1Pos = {
+                    x: pos.start.x + direction.x / 3,
+                    y: pos.start.y + direction.y / 3,
+                    z: pos.start.z + direction.z / 3
+                };
+                
+                const ring2Pos = {
+                    x: pos.start.x + 2 * direction.x / 3,
+                    y: pos.start.y + 2 * direction.y / 3,
+                    z: pos.start.z + 2 * direction.z / 3
+                };
+                
+                ring1.position.set(ring1Pos.x, ring1Pos.y, ring1Pos.z);
+                ring2.position.set(ring2Pos.x, ring2Pos.y, ring2Pos.z);
+                
+                // Orient rings perpendicular to strut
+                ring1.lookAt(pos.end.x, pos.end.y, pos.end.z);
+                ring2.lookAt(pos.end.x, pos.end.y, pos.end.z);
+                
+                drone.add(ring1);
+                drone.add(ring2);
+                
+                // Add junction nodes at the ends of struts
+                if (index % 2 === 0) { // Only add at outer ends to avoid duplication
+                    const nodeGeometry = new THREE.SphereGeometry(0.1, 16, 16);
+                    const node = new THREE.Mesh(nodeGeometry, titaniumMaterial);
+                    node.position.set(pos.end.x, pos.end.y, pos.end.z);
+                    drone.add(node);
+                    
+                    // Add small detail light to node
+                    const nodeLightGeometry = new THREE.SphereGeometry(0.02, 8, 8);
+                    const nodeLight = new THREE.Mesh(nodeLightGeometry, index % 4 === 0 ? tealGlowMaterial : indigoGlowMaterial);
+                    nodeLight.position.set(pos.end.x, pos.end.y + 0.08, pos.end.z);
+                    drone.add(nodeLight);
+                }
+            });
+            
+            // Add sleek aerodynamic connector instead of bulky body section
+            const connectorGeometry = new THREE.CylinderGeometry(0.15, 0.15, 0.6, 16);
+            const connector = new THREE.Mesh(connectorGeometry, secondaryMaterial);
+            connector.rotation.x = Math.PI / 2;
+            connector.position.z = 0.3;
+            drone.add(connector);
+            
+            // Add chrome accent rings on the connector
+            const ringGeometry1 = new THREE.TorusGeometry(0.16, 0.02, 16, 24);
+            const chromeRing1 = new THREE.Mesh(ringGeometry1, chromeMaterial);
+            chromeRing1.position.z = 0.1;
+            chromeRing1.rotation.x = Math.PI / 2;
+            drone.add(chromeRing1);
+            
+            const ringGeometry2 = new THREE.TorusGeometry(0.16, 0.02, 16, 24);
+            const chromeRing2 = new THREE.Mesh(ringGeometry2, chromeMaterial);
+            chromeRing2.position.z = 0.5;
+            chromeRing2.rotation.x = Math.PI / 2;
+            drone.add(chromeRing2);
+            
+            // Add sleek aerodynamic top fin with premium details
+            const finGeometry = new THREE.BoxGeometry(1.5, 0.04, 0.5);
+            const fin = new THREE.Mesh(finGeometry, secondaryMaterial);
+            fin.position.set(0, 0.3, 0);
+            drone.add(fin);
+            
+            // Add fin details - carbon fiber strip
+            const finStripGeometry = new THREE.BoxGeometry(1.3, 0.05, 0.2);
+            const finStrip = new THREE.Mesh(finStripGeometry, carbonFiberMaterial);
+            finStrip.position.set(0, 0.32, 0);
+            drone.add(finStrip);
+            
+            // Add premium bottom stabilizers with accent lights
+            const stabilizerGeometry = new THREE.BoxGeometry(1.8, 0.04, 0.3);
+            const bottomStabilizer = new THREE.Mesh(stabilizerGeometry, secondaryMaterial);
+            bottomStabilizer.position.set(0, -0.3, 0);
+            drone.add(bottomStabilizer);
+            
+            // Add glowing accent strip on stabilizer
+            const stabilizerStripGeometry = new THREE.BoxGeometry(1.6, 0.01, 0.1);
+            const stabilizerStrip = new THREE.Mesh(stabilizerStripGeometry, indigoGlowMaterial);
+            stabilizerStrip.position.set(0, -0.28, 0);
+            drone.add(stabilizerStrip);
+            
+            // Add detailed vents on body for cooling effect
+            const ventGeometry = new THREE.BoxGeometry(0.4, 0.02, 0.1);
+            const ventPositions = [
+                { x: 0.5, y: 0.1, z: -0.4 },
+                { x: 0.3, y: 0.1, z: -0.5 },
+                { x: 0.1, y: 0.1, z: -0.6 },
+                { x: -0.1, y: 0.1, z: -0.6 },
+                { x: -0.3, y: 0.1, z: -0.5 },
+                { x: -0.5, y: 0.1, z: -0.4 }
+            ];
+            
+            ventPositions.forEach(pos => {
+                const vent = new THREE.Mesh(ventGeometry, accentMaterial);
+                vent.position.set(pos.x, pos.y, pos.z);
+                vent.rotation.y = Math.atan2(pos.x, -pos.z);
+                drone.add(vent);
+            });
+            
+            // Create ultra-premium carbon fiber arms with aerodynamic shape
+            const armGeometry = new THREE.CylinderGeometry(0.08, 0.12, 2.4, 12);
+            
+            // Position the arms at 45-degree angles
+            const armPositions = [
+                { x: 0.8, y: 0, z: 0.8, ry: Math.PI / 4 },     // Front right
+                { x: -0.8, y: 0, z: 0.8, ry: -Math.PI / 4 },   // Front left
+                { x: 0.8, y: 0, z: -0.8, ry: -Math.PI / 4 },   // Back right
+                { x: -0.8, y: 0, z: -0.8, ry: Math.PI / 4 }    // Back left
+            ];
+            
+            // Add premium arms with details
+            armPositions.forEach((pos, index) => {
+                // Main carbon fiber arm
+                const arm = new THREE.Mesh(armGeometry, carbonFiberMaterial);
+                arm.position.set(pos.x, pos.y, pos.z);
+                arm.rotation.z = Math.PI / 2;
+                arm.rotation.y = pos.ry;
+                drone.add(arm);
+                
+                // Add chrome accent bands on arms
+                const armBandGeometry = new THREE.CylinderGeometry(0.11, 0.11, 0.05, 12);
+                const armBandPositions = [-0.8, -0.4, 0, 0.4, 0.8]; // Multiple bands along arm
+                
+                armBandPositions.forEach(offset => {
+                    const band = new THREE.Mesh(armBandGeometry, chromeMaterial);
+                    // Position band along the arm
+                    band.position.set(
+                        pos.x + Math.cos(pos.ry) * offset,
+                        pos.y,
+                        pos.z + Math.sin(pos.ry) * offset
+                    );
+                    band.rotation.z = Math.PI / 2;
+                    band.rotation.y = pos.ry;
+                    drone.add(band);
+                });
+                
+                // Add glowing status indicators on arms
+                const indicatorGeometry = new THREE.BoxGeometry(0.04, 0.04, 0.2);
+                const indicatorMaterial = index % 2 === 0 ? tealGlowMaterial : blueGlowMaterial;
+                const indicator = new THREE.Mesh(indicatorGeometry, indicatorMaterial);
+                
+                // Position indicator on top of arm
+                indicator.position.set(
+                    pos.x + Math.cos(pos.ry) * 0.6,
+                    pos.y + 0.1,
+                    pos.z + Math.sin(pos.ry) * 0.6
+                );
+                indicator.rotation.y = pos.ry;
+                drone.add(indicator);
+            });
+            
+            // Create premium rotor housings with detailed components
+            const rotorHousingGeometry = new THREE.CylinderGeometry(0.4, 0.5, 0.15, 24);
+            const rotorPositions = [
+                { x: 1.6, y: 0, z: 1.6 },   // Front right
+                { x: -1.6, y: 0, z: 1.6 },  // Front left
+                { x: 1.6, y: 0, z: -1.6 },  // Back right
+                { x: -1.6, y: 0, z: -1.6 }  // Back left
+            ];
+            
+            // Add rotors and blades with premium details
+            const rotors = [];
+            rotorPositions.forEach((pos, index) => {
+                // Main rotor housing
+                const rotorHousing = new THREE.Mesh(rotorHousingGeometry, accentMaterial);
+                rotorHousing.position.set(pos.x, pos.y, pos.z);
+                drone.add(rotorHousing);
+                
+                // Add chrome rim around rotor housing
+                const rimGeometry = new THREE.TorusGeometry(0.48, 0.02, 16, 36);
+                const rim = new THREE.Mesh(rimGeometry, chromeMaterial);
+                rim.position.set(pos.x, pos.y - 0.05, pos.z);
+                rim.rotation.x = Math.PI / 2;
+                drone.add(rim);
+                
+                // Add detailed motor core inside housing
+                const motorCoreGeometry = new THREE.CylinderGeometry(0.25, 0.25, 0.1, 24);
+                const motorCore = new THREE.Mesh(motorCoreGeometry, secondaryMaterial);
+                motorCore.position.set(pos.x, pos.y + 0.02, pos.z);
+                drone.add(motorCore);
+                
+                // Add cooling vents around rotor housing
+                for (let i = 0; i < 8; i++) {
+                    const ventAngle = (i * Math.PI * 2) / 8;
+                    const ventGeometry = new THREE.BoxGeometry(0.1, 0.04, 0.02);
+                    const vent = new THREE.Mesh(ventGeometry, carbonFiberMaterial);
+                    vent.position.set(
+                        pos.x + Math.cos(ventAngle) * 0.4,
+                        pos.y,
+                        pos.z + Math.sin(ventAngle) * 0.4
+                    );
+                    vent.rotation.y = ventAngle;
+                    drone.add(vent);
+                }
+                
+                // Premium glowing ring with pulsing effect
+                const ringGeometry = new THREE.TorusGeometry(0.45, 0.03, 16, 36);
+                const ringMaterial = index % 2 === 0 ? blueGlowMaterial : tealGlowMaterial;
+                const ring = new THREE.Mesh(ringGeometry, ringMaterial);
+                ring.position.set(pos.x, pos.y + 0.05, pos.z);
+                ring.rotation.x = Math.PI / 2;
+                drone.add(ring);
+                
+                // Rotor blades group (will be animated)
+                const bladeGroup = new THREE.Group();
+                bladeGroup.position.set(pos.x, pos.y + 0.1, pos.z);
+                
+                // Create ultra-sophisticated aerodynamic propeller system
+                const bladeCount = 6; // Increased to 6 blades for advanced engineering look
+                
+                // Create propeller hub with intricate details
+                const hubGeometry = new THREE.CylinderGeometry(0.08, 0.1, 0.04, 12);
+                const hub = new THREE.Mesh(hubGeometry, titaniumMaterial);
+                bladeGroup.add(hub);
+                
+                // Add hub details - center cap
+                const hubCapGeometry = new THREE.CylinderGeometry(0.04, 0.04, 0.05, 12);
+                const hubCap = new THREE.Mesh(hubCapGeometry, darkBlueMaterial);
+                hubCap.position.y = 0.02;
+                bladeGroup.add(hubCap);
+                
+                // Add glowing ring in hub
+                const hubRingGeometry = new THREE.TorusGeometry(0.06, 0.01, 12, 24);
+                const hubRing = new THREE.Mesh(hubRingGeometry, tealGlowMaterial);
+                hubRing.rotation.x = Math.PI / 2;
+                hubRing.position.y = 0.01;
+                bladeGroup.add(hubRing);
+                
+                // Create advanced aerodynamic blades with airfoil cross-section
+                for (let i = 0; i < bladeCount; i++) {
+                    // Create blade group for complex blade assembly
+                    const singleBladeGroup = new THREE.Group();
+                    
+                    // Create advanced airfoil shape with proper aerodynamic profile
+                    const bladeShape = new THREE.Shape();
+                    bladeShape.moveTo(0, 0);
+                    bladeShape.bezierCurveTo(0.1, -0.01, 0.4, -0.08, 0.7, -0.05);
+                    bladeShape.lineTo(0.7, 0.01);
+                    bladeShape.bezierCurveTo(0.4, 0.03, 0.1, 0.01, 0, 0);
+                    
+                    const extrudeSettings = {
+                        steps: 1,
+                        depth: 0.03,
+                        bevelEnabled: true,
+                        bevelThickness: 0.01,
+                        bevelSize: 0.01,
+                        bevelSegments: 3
+                    };
+                    
+                    // Main blade with advanced material
+                    const bladeGeometry = new THREE.ExtrudeGeometry(bladeShape, extrudeSettings);
+                    const blade = new THREE.Mesh(bladeGeometry, carbonFiberMaterial);
+                    blade.rotation.z = Math.PI * 0.05; // Slight pitch angle for aerodynamic effect
+                    singleBladeGroup.add(blade);
+                    
+                    // Add reinforcement spine along blade
+                    const spineGeometry = new THREE.BoxGeometry(0.65, 0.01, 0.01);
+                    const spine = new THREE.Mesh(spineGeometry, titaniumMaterial);
+                    spine.position.set(0.32, 0, 0.02);
+                    singleBladeGroup.add(spine);
+                    
+                    // Add titanium blade tip with aerodynamic winglet
+                    const tipGroup = new THREE.Group();
+                    tipGroup.position.set(0.68, 0, 0);
+                    
+                    const tipBaseGeometry = new THREE.BoxGeometry(0.1, 0.04, 0.03);
+                    const tipBase = new THREE.Mesh(tipBaseGeometry, titaniumMaterial);
+                    tipGroup.add(tipBase);
+                    
+                    // Add vertical winglet at tip for increased efficiency
+                    const wingletGeometry = new THREE.BoxGeometry(0.05, 0.08, 0.01);
+                    const winglet = new THREE.Mesh(wingletGeometry, darkBlueMaterial);
+                    winglet.position.set(0.02, 0.04, 0);
+                    tipGroup.add(winglet);
+                    
+                    // Add glowing tip for visual tracking
+                    const tipLightGeometry = new THREE.SphereGeometry(0.01, 8, 8);
+                    const tipLight = new THREE.Mesh(tipLightGeometry, blueGlowMaterial);
+                    tipLight.position.set(0.05, 0.06, 0);
+                    tipGroup.add(tipLight);
+                    
+                    singleBladeGroup.add(tipGroup);
+                    
+                    // Add blade measurement markings for engineering detail
+                    for (let j = 1; j <= 3; j++) {
+                        const markingGeometry = new THREE.BoxGeometry(0.01, 0.01, 0.04);
+                        const marking = new THREE.Mesh(markingGeometry, chromeMaterial);
+                        marking.position.set(j * 0.15, 0, 0.02);
+                        singleBladeGroup.add(marking);
+                    }
+                    
+                    // Position and rotate blade around hub
+                    singleBladeGroup.rotation.y = (i * Math.PI * 2) / bladeCount;
+                    bladeGroup.add(singleBladeGroup);
+                }
+                
+                drone.add(bladeGroup);
+                rotors.push(bladeGroup);
+            });
+            
+            // Add ultra-premium gimbal camera system to front
+            const gimbalBaseGeometry = new THREE.CylinderGeometry(0.3, 0.35, 0.1, 24);
+            const gimbalBase = new THREE.Mesh(gimbalBaseGeometry, secondaryMaterial);
+            gimbalBase.position.set(0, -0.05, 1.0);
+            gimbalBase.rotation.x = Math.PI / 2;
+            drone.add(gimbalBase);
+            
+            // Add chrome gimbal ring
+            const gimbalRingGeometry = new THREE.TorusGeometry(0.25, 0.03, 16, 32);
+            const gimbalRing = new THREE.Mesh(gimbalRingGeometry, chromeMaterial);
+            gimbalRing.position.set(0, 0, 1.0);
+            gimbalRing.rotation.x = Math.PI / 2;
+            drone.add(gimbalRing);
+            
+            // Add advanced camera housing
+            const cameraHousingGeometry = new THREE.BoxGeometry(0.35, 0.35, 0.25);
+            const cameraHousing = new THREE.Mesh(cameraHousingGeometry, accentMaterial);
+            cameraHousing.position.set(0, 0, 1.15);
+            drone.add(cameraHousing);
+            
+            // Add carbon fiber details to camera housing
+            const cameraDetailGeometry = new THREE.BoxGeometry(0.36, 0.1, 0.26);
+            const cameraDetail = new THREE.Mesh(cameraDetailGeometry, carbonFiberMaterial);
+            cameraDetail.position.set(0, 0.13, 1.15);
+            drone.add(cameraDetail);
+            
+            // Add premium multi-lens camera system
+            // Main lens (center)
+            const mainLensGeometry = new THREE.SphereGeometry(0.12, 32, 32);
+            const mainLens = new THREE.Mesh(mainLensGeometry, new THREE.MeshPhongMaterial({ 
+                color: 0x000000, 
+                shininess: 200 
+            }));
+            mainLens.position.set(0, 0, 1.28);
+            drone.add(mainLens);
+            
+            // Add lens reflection with dynamic lighting effect
+            const lensReflectionGeometry = new THREE.SphereGeometry(0.04, 16, 16);
+            const lensReflection = new THREE.Mesh(lensReflectionGeometry, new THREE.MeshPhongMaterial({ 
+                color: 0x88ccff, 
+                emissive: 0x88ccff,
+                emissiveIntensity: 0.9
+            }));
+            lensReflection.position.set(0.03, 0.03, 1.33);
+            drone.add(lensReflection);
+            
+            // Add secondary lenses for multi-camera array
+            const secondaryLensGeometry = new THREE.SphereGeometry(0.06, 24, 24);
+            const secondaryLensPositions = [
+                { x: 0.12, y: 0.12, z: 1.28 },  // Top right
+                { x: -0.12, y: 0.12, z: 1.28 }, // Top left
+                { x: 0.12, y: -0.12, z: 1.28 }, // Bottom right
+                { x: -0.12, y: -0.12, z: 1.28 } // Bottom left
+            ];
+            
+            secondaryLensPositions.forEach((pos, index) => {
+                const lensMaterial = new THREE.MeshPhongMaterial({ 
+                    color: 0x000000, 
+                    shininess: 180 
+                });
+                const lens = new THREE.Mesh(secondaryLensGeometry, lensMaterial);
+                lens.position.set(pos.x, pos.y, pos.z);
+                drone.add(lens);
+                
+                // Add colored ring around each secondary lens
+                const lensRingGeometry = new THREE.TorusGeometry(0.065, 0.01, 12, 24);
+                const ringMaterial = index % 2 === 0 ? 
+                    new THREE.MeshPhongMaterial({ color: 0x00ccff, emissive: 0x00ccff, emissiveIntensity: 0.6 }) : 
+                    new THREE.MeshPhongMaterial({ color: 0x5566dd, emissive: 0x5566dd, emissiveIntensity: 0.6 });
+                const lensRing = new THREE.Mesh(lensRingGeometry, ringMaterial);
+                lensRing.position.set(pos.x, pos.y, pos.z + 0.01);
+                lensRing.rotation.x = Math.PI / 2;
+                drone.add(lensRing);
+            });
+            
+            // Add advanced sensors and scanning equipment
+            const sensorGeometry = new THREE.BoxGeometry(0.08, 0.08, 0.05);
+            const sensorMaterial = new THREE.MeshPhongMaterial({ color: 0x222222, shininess: 150 });
+            
+            // Add sensors in a hexagonal pattern
+            const sensorPositions = [
+                { x: 0.15, y: 0, z: 1.28 },      // Right
+                { x: -0.15, y: 0, z: 1.28 },     // Left
+                { x: 0.08, y: -0.15, z: 1.28 },  // Bottom right
+                { x: -0.08, y: -0.15, z: 1.28 }, // Bottom left
+                { x: 0, y: 0.18, z: 1.28 }       // Top
+            ];
+            
+            sensorPositions.forEach(pos => {
+                const sensor = new THREE.Mesh(sensorGeometry, sensorMaterial);
+                sensor.position.set(pos.x, pos.y, pos.z);
+                drone.add(sensor);
+                
+                // Add tiny blinking light to each sensor
+                const sensorLightGeometry = new THREE.SphereGeometry(0.01, 8, 8);
+                const sensorLight = new THREE.Mesh(sensorLightGeometry, indigoGlowMaterial);
+                sensorLight.position.set(pos.x, pos.y, pos.z + 0.03);
+                drone.add(sensorLight);
+            });
+            
+            // Add premium status LEDs with chrome bezels
+            const ledPositions = [
+                { x: 0.6, y: 0.1, z: 0, color: 0x00ccff },    // Right (ice blue)
+                { x: -0.6, y: 0.1, z: 0, color: 0x00ccff },   // Left (ice blue)
+                { x: 0, y: 0.15, z: -0.6, color: 0x5566dd },  // Back (indigo blue)
+                { x: 0.3, y: 0.15, z: -0.5, color: 0x00dddd }, // Back right (teal)
+                { x: -0.3, y: 0.15, z: -0.5, color: 0x00dddd } // Back left (teal)
+            ];
+            
+            ledPositions.forEach(pos => {
+                // LED bezel
+                const bezelGeometry = new THREE.CylinderGeometry(0.06, 0.06, 0.02, 16);
+                const bezel = new THREE.Mesh(bezelGeometry, chromeMaterial);
+                bezel.position.set(pos.x, pos.y, pos.z);
+                bezel.rotation.x = Math.PI / 2;
+                drone.add(bezel);
+                
+                // LED light
+                const ledGeometry = new THREE.SphereGeometry(0.04, 16, 16);
+                const ledMaterial = new THREE.MeshPhongMaterial({ 
+                    color: pos.color, 
+                    emissive: pos.color,
+                    emissiveIntensity: 0.8
+                });
+                const led = new THREE.Mesh(ledGeometry, ledMaterial);
+                led.position.set(pos.x, pos.y, pos.z + 0.01);
+                drone.add(led);
+            });
+            
+            // Add sleek communication elements integrated into the frame
+            // Add small advanced communication nodes at strategic points on the frame
+            const commNodePositions = [
+                { x: 0.4, y: 0.2, z: -0.3 },
+                { x: -0.4, y: 0.2, z: -0.3 },
+                { x: 0, y: 0.25, z: -0.4 }
+            ];
+            
+            commNodePositions.forEach((pos, index) => {
+                // Create small comm node
+                const commNodeGeometry = new THREE.CylinderGeometry(0.04, 0.03, 0.06, 8);
+                const commNode = new THREE.Mesh(commNodeGeometry, titaniumMaterial);
+                commNode.position.set(pos.x, pos.y, pos.z);
+                commNode.rotation.x = Math.PI / 2;
+                drone.add(commNode);
+                
+                // Add glowing element
+                const commLightGeometry = new THREE.SphereGeometry(0.015, 8, 8);
+                const commLight = new THREE.Mesh(commLightGeometry, index % 2 === 0 ? blueGlowMaterial : tealGlowMaterial);
+                commLight.position.set(pos.x, pos.y, pos.z + 0.04);
+                drone.add(commLight);
+                
+                // Add tiny antenna
+                const tinyAntennaGeometry = new THREE.CylinderGeometry(0.005, 0.002, 0.08, 8);
+                const tinyAntenna = new THREE.Mesh(tinyAntennaGeometry, chromeMaterial);
+                tinyAntenna.position.set(pos.x, pos.y + 0.05, pos.z);
+                tinyAntenna.rotation.x = Math.PI / 6;
+                tinyAntenna.rotation.z = index * Math.PI / 4;
+                drone.add(tinyAntenna);
+                
+                // Add antenna tip light
+                const tipLightGeometry = new THREE.SphereGeometry(0.004, 8, 8);
+                const tipLight = new THREE.Mesh(tipLightGeometry, indigoGlowMaterial);
+                tipLight.position.set(
+                    pos.x + Math.sin(index * Math.PI / 4) * 0.03,
+                    pos.y + 0.09,
+                    pos.z + Math.cos(index * Math.PI / 4) * 0.03
+                );
+                drone.add(tipLight);
+            });
+            
+            // Add premium detail - cooling grills on body
+            const grillGeometry = new THREE.PlaneGeometry(0.4, 0.15);
+            const grillMaterial = new THREE.MeshPhongMaterial({ 
+                color: 0x222222, 
+                shininess: 100,
+                side: THREE.DoubleSide
+            });
+            
+            const grillPositions = [
+                { x: 0, y: 0.18, z: -0.3, rx: -Math.PI / 4, ry: 0 },
+                { x: 0.4, y: 0.1, z: -0.2, rx: -Math.PI / 6, ry: Math.PI / 4 },
+                { x: -0.4, y: 0.1, z: -0.2, rx: -Math.PI / 6, ry: -Math.PI / 4 }
+            ];
+            
+            grillPositions.forEach(pos => {
+                const grill = new THREE.Mesh(grillGeometry, grillMaterial);
+                grill.position.set(pos.x, pos.y, pos.z);
+                grill.rotation.x = pos.rx;
+                grill.rotation.y = pos.ry;
+                drone.add(grill);
+                
+                // Add grill lines
+                for (let i = -3; i <= 3; i++) {
+                    const lineGeometry = new THREE.BoxGeometry(0.35, 0.01, 0.01);
+                    const line = new THREE.Mesh(lineGeometry, chromeMaterial);
+                    line.position.set(0, i * 0.02, 0.01);
+                    grill.add(line);
+                }
+            });
+            
+            // Scale up the entire drone to 4.5x as requested
+            drone.scale.set(4.5, 4.5, 4.5);
+            
+            // Start propellers spinning immediately
+            rotors.forEach((rotor, index) => {
+                rotor.rotation.y = Math.random() * Math.PI * 2; // Random initial position
+            });
+            
+            return { drone, rotors };
+        }
+        
+        // Create the drone
+        const { drone, rotors } = createDrone();
+        scene.add(drone);
+        
+        // Hide loading screen
+        loadingElement.style.display = 'none';
+        
+        // Position the drone to be centered and visible in the hero section
+        drone.position.set(0, 0, 0);
+
+        // Enhanced animation for premium futuristic effect
+        let time = 0;
+        function animate() {
+            requestAnimationFrame(animate);
+            time += 0.01;
+            
+            // Rotate the rotors with variable speed for more realism
+            rotors.forEach((rotor, index) => {
+                // Alternate rotation directions with variable speed
+                const direction = index % 2 === 0 ? 1 : -1;
+                const speedVariation = Math.sin(time * 0.5) * 0.05 + 0.95; // 0.9 to 1.0 speed variation
+                rotor.rotation.y += direction * 0.3 * speedVariation;
+            });
+            
+            // Add complex floating motion to the drone - reduced for larger size
+            drone.position.y = Math.sin(time) * 0.15;
+            
+            // Add very subtle tilting motion - reduced for larger size
+            drone.rotation.x = Math.sin(time * 0.5) * 0.015;
+            drone.rotation.z = Math.sin(time * 0.7) * 0.015;
+            
+            // Add minimal horizontal drift - reduced for larger size
+            drone.position.x = Math.sin(time * 0.3) * 0.05;
+            drone.position.z = Math.cos(time * 0.4) * 0.05;
+            
+            // Animate particles
+            if (particles) {
+                // Rotate the entire particle system slowly
+                particles.rotation.y += 0.001;
+                
+                // Get particle positions and update them
+                const positions = particles.geometry.attributes.position.array;
+                for (let i = 0; i < positions.length; i += 3) {
+                    // Add subtle movement to each particle
+                    positions[i] += Math.sin(time + i * 0.01) * 0.01;
+                    positions[i + 1] += Math.cos(time + i * 0.01) * 0.01;
+                    positions[i + 2] += Math.sin(time + i * 0.02) * 0.01;
+                }
+                particles.geometry.attributes.position.needsUpdate = true;
+            }
+            
+            // Pulse the glow intensity of lights
+            scene.traverse((object) => {
+                if (object.material && object.material.emissive) {
+                    if (object.material.color.g > 0.5) { // Only affect cyan/blue materials
+                        object.material.emissiveIntensity = 0.6 + Math.sin(time * 2) * 0.2;
+                    }
+                }
+            });
+            
+            // Pulse the accent light intensity
+            if (accentLight) {
+                accentLight.intensity = 0.3 + Math.sin(time * 1.5) * 0.2;
+            }
+            
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+    
+    <!-- Additional JavaScript for new sections -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ Toggle Functionality
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // Enhanced 3D icon animations
+            const allIcons = document.querySelectorAll('.service-icon, .career-icon, .contact-icon');
+            
+            // Add random delay to each icon for more natural movement
+            allIcons.forEach(icon => {
+                const randomDelay = Math.random() * 3; // Random delay between 0-3s
+                icon.style.animationDelay = `${randomDelay}s`;
+                
+                // Add subtle rotation variation
+                const randomRotation = Math.random() * 10 - 5; // Random rotation between -5 and 5 degrees
+                icon.style.transform = `rotate(${randomRotation}deg)`;
+            });
+            
+            // Add parallax effect to icons on mouse move
+            document.addEventListener('mousemove', function(e) {
+                const mouseX = e.clientX / window.innerWidth - 0.5;
+                const mouseY = e.clientY / window.innerHeight - 0.5;
+                
+                allIcons.forEach(icon => {
+                    const depth = parseFloat(icon.getAttribute('data-depth') || 0.1);
+                    const moveX = mouseX * 20 * depth;
+                    const moveY = mouseY * 20 * depth;
+                    
+                    icon.style.transform = `translate(${moveX}px, ${moveY}px) rotate(${icon.dataset.rotation || 0}deg)`;
+                });
+            });
+        });
+    </script>
+    
+    <!-- Animation scripts -->
+    <script src="js/animations.js"></script>
+</body>
+</html>

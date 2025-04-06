@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Droner - FAQ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&f[]=general-sans@700,600,500,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/animations.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Space Grotesk', sans-serif;
+            color: white;
+            background: linear-gradient(135deg, #000000, #1a1a2e, #000000);
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjA1IiBkPSJNMCAwaDMwMHYzMDBIMHoiLz48L3N2Zz4=');
+            opacity: 0.4;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .futuristic-nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 15, 30, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 8px 20px;
+            width: 80%;
+            max-width: 1200px;
+            z-index: 1000;
+            border: 1px solid rgba(0, 204, 255, 0.15);
+            box-shadow: 0 0 20px rgba(0, 204, 255, 0.1);
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: white;
+            text-shadow: 0 0 8px rgba(0, 204, 255, 0.5);
+            letter-spacing: 0.05em;
+            text-decoration: none;
+        }
+        
+        .nav-brand-icon {
+            position: relative;
+            font-size: 1.1rem;
+            color: #00ccff;
+            text-shadow: 0 0 10px rgba(0, 204, 255, 0.8), 0 0 20px rgba(0, 204, 255, 0.4);
+            animation: pulse 2s infinite;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-family: 'General Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #00ccff;
+        }
+        
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #00ccff;
+            box-shadow: 0 0 5px rgba(0, 204, 255, 0.5);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+        
+        .nav-links a.active {
+            color: #00ccff;
+        }
+        
+        .nav-links a.active::before {
+            width: 100%;
+        }
+        
+        .page-header {
+            padding-top: 150px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .page-title {
+            font-family: 'Satoshi', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #ffffff, #00ccff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ccff, transparent);
+            box-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
+        }
+        
+        .page-subtitle {
+            font-family: 'General Sans', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 700px;
+            margin: 30px auto 0;
+        }
+        
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+        
+        .faq-search {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        
+        .faq-search input {
+            width: 100%;
+            padding: 15px 20px;
+            padding-left: 50px;
+            background: rgba(15, 20, 40, 0.4);
+            border: 1px solid rgba(0, 204, 255, 0.2);
+            border-radius: 50px;
+            color: white;
+            font-family: 'General Sans', sans-serif;
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-search input:focus {
+            outline: none;
+            border-color: rgba(0, 204, 255, 0.6);
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.3);
+        }
+        
+        .faq-search i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(0, 204, 255, 0.8);
+        }
+        
+        .faq-categories {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .category-btn {
+            padding: 8px 20px;
+            background: rgba(15, 20, 40, 0.4);
+            border: 1px solid rgba(0, 204, 255, 0.2);
+            border-radius: 50px;
+            color: rgba(255, 255, 255, 0.8);
+            font-family: 'General Sans', sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background: rgba(0, 204, 255, 0.1);
+            border-color: rgba(0, 204, 255, 0.4);
+            color: #00ccff;
+        }
+        
+        .faq-list {
+            list-style: none;
+        }
+        
+        .faq-item {
+            background: rgba(15, 20, 40, 0.4);
+            border: 1px solid rgba(0, 204, 255, 0.2);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .faq-item:hover {
+            border-color: rgba(0, 204, 255, 0.4);
+            box-shadow: 0 0 20px rgba(0, 204, 255, 0.1);
+        }
+        
+        .faq-question {
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question h3 {
+            font-family: 'Satoshi', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .faq-question i {
+            color: #00ccff;
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            padding: 0 25px;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding-bottom: 25px;
+        }
+        
+        .faq-item.active .faq-question {
+            border-bottom: 1px solid rgba(0, 204, 255, 0.2);
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer p {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 15px;
+        }
+        
+        .faq-answer a {
+            color: #00ccff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-answer a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(10, 15, 30, 0.3);
+            font-family: 'General Sans', sans-serif;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="futuristic-nav">
+        <a href="index.html" class="nav-brand"><i class="fas fa-drone nav-brand-icon"></i> DRONER</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="casestudies.html">Case Studies</a></li>
+            <li><a href="career.html">Careers</a></li>
+            <li><a href="faq.html" class="active">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1 class="page-title">Frequently Asked Questions</h1>
+        <p class="page-subtitle">Find answers to common questions about our drone services, booking process, and technology.</p>
+    </header>
+    
+    <!-- FAQ Section -->
+    <div class="faq-container">
+        <!-- Search Bar -->
+        <div class="faq-search">
+            <i class="fas fa-search"></i>
+            <input type="text" id="faq-search-input" placeholder="Search for questions...">
+        </div>
+        
+        <!-- Categories -->
+        <div class="faq-categories">
+            <button class="category-btn active" data-category="all">All</button>
+            <button class="category-btn" data-category="services">Services</button>
+            <button class="category-btn" data-category="booking">Booking</button>
+            <button class="category-btn" data-category="technical">Technical</button>
+            <button class="category-btn" data-category="legal">Legal & Safety</button>
+        </div>
+        
+        <!-- FAQ List -->
+        <ul class="faq-list">
+            <!-- Services Category -->
+            <li class="faq-item" data-category="services">
+                <div class="faq-question">
+                    <h3>What drone services do you offer?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We offer a comprehensive range of drone services including:</p>
+                    <p>• Aerial photography and videography<br>
+                    • Real estate and property showcasing<br>
+                    • Construction site monitoring and progress tracking<br>
+                    • Infrastructure inspection (bridges, towers, solar farms)<br>
+                    • Agricultural mapping and crop analysis<br>
+                    • Event coverage and cinematography<br>
+                    • Thermal imaging and inspections<br>
+                    • 3D mapping and terrain modeling</p>
+                    <p>Each service is customizable to meet your specific requirements. Visit our <a href="services.html">Services page</a> for more details.</p>
+                </div>
+            </li>
+            
+            <li class="faq-item" data-category="services">
+                <div class="faq-question">
+                    <h3>What areas do you service?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We currently operate in major cities across India including Mumbai, Delhi, Bangalore, Chennai, Hyderabad, Kolkata, and Pune. We also service surrounding areas within a 100km radius of these cities.</p>
+                    <p>For projects outside these regions, please <a href="contact.html">contact us</a> directly to discuss feasibility and any additional travel charges that may apply.</p>
+                </div>
+            </li>
+            
+            <!-- Booking Category -->
+            <li class="faq-item" data-category="booking">
+                <div class="faq-question">
+                    <h3>How do I book a drone service?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Booking a drone service with us is simple:</p>
+                    <p>1. Visit our <a href="booking.html">Booking page</a><br>
+                    2. Select the service you require<br>
+                    3. Choose your preferred date and time<br>
+                    4. Fill in your project details and location<br>
+                    5. Submit your booking request</p>
+                    <p>Our team will review your request and contact you within 24 hours to confirm details and provide a quote. For urgent bookings, please call us directly at +91 98765 43210.</p>
+                </div>
+            </li>
+            
+            <li class="faq-item" data-category="booking">
+                <div class="faq-question">
+                    <h3>What is your cancellation policy?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Our cancellation policy is as follows:</p>
+                    <p>• Cancellations made more than 72 hours before the scheduled service: Full refund<br>
+                    • Cancellations made between 24-72 hours: 50% refund<br>
+                    • Cancellations made less than 24 hours: No refund</p>
+                    <p>In case of adverse weather conditions that make drone operations unsafe, we will reschedule your booking at no additional cost. We reserve the right to cancel or reschedule flights due to safety concerns, regulatory restrictions, or equipment issues.</p>
+                </div>
+            </li>
+            
+            <!-- Technical Category -->
+            <li class="faq-item" data-category="technical">
+                <div class="faq-question">
+                    <h3>What types of drones do you use?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We maintain a fleet of professional-grade drones to handle various project requirements:</p>
+                    <p>• DJI Mavic 3 Pro: For high-resolution photography and videography<br>
+                    • DJI Inspire 2: For professional cinematography<br>
+                    • DJI Matrice 300 RTK: For industrial inspections and mapping<br>
+                    • DJI Phantom 4 RTK: For precision mapping and surveying<br>
+                    • Custom drones with specialized payloads for specific applications</p>
+                    <p>All our drones are equipped with the latest technology, regularly maintained, and operated by certified pilots to ensure optimal performance and safety.</p>
+                </div>
+            </li>
+            
+            <li class="faq-item" data-category="technical">
+                <div class="faq-question">
+                    <h3>What resolution and file formats do you provide?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We capture images in up to 8K resolution and videos in up to 4K/60fps, depending on the drone model used for your project. Our standard deliverables include:</p>
+                    <p>• Photos: JPG and RAW formats (20-45MP depending on drone)<br>
+                    • Videos: MP4 or MOV formats (up to 4K resolution)<br>
+                    • 3D Models: OBJ, FBX, or PLY formats<br>
+                    • Maps: GeoTIFF, PDF, or web-based interactive maps<br>
+                    • Data: CSV, KML, or custom formats as needed</p>
+                    <p>We can accommodate specific format requirements upon request. All deliverables are provided via secure cloud download links or on physical storage devices for larger projects.</p>
+                </div>
+            </li>
+            
+            <!-- Legal Category -->
+            <li class="faq-item" data-category="legal">
+                <div class="faq-question">
+                    <h3>Do you have the necessary licenses and permissions?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we operate in full compliance with all DGCA (Directorate General of Civil Aviation) regulations. Our credentials include:</p>
+                    <p>• DGCA-certified drone operators and pilots<br>
+                    • UIN (Unique Identification Number) for all our drones<br>
+                    • UAOP (Unmanned Aircraft Operator Permit)<br>
+                    • Comprehensive insurance coverage<br>
+                    • Regular training and certification updates</p>
+                    <p>We handle all necessary permissions for each flight, including NPNT (No Permission No Take-off) clearances through the Digital Sky platform. For flights in restricted areas, we obtain special permissions from relevant authorities.</p>
+                </div>
+            </li>
+            
+            <li class="faq-item" data-category="legal">
+                <div class="faq-question">
+                    <h3>What about privacy and data security?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We take privacy and data security very seriously:</p>
+                    <p>• All client data is stored on encrypted servers<br>
+                    • We follow strict data handling protocols<br>
+                    • We respect privacy laws and avoid capturing footage of private properties without consent<br>
+                    • All footage is treated as confidential client property<br>
+                    • We can sign NDAs for sensitive projects</p>
+                    <p>We only use client footage for our portfolio with explicit permission. Our pilots are trained to respect privacy concerns and avoid capturing unnecessary footage of individuals or sensitive areas.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Droner. All rights reserved.</p>
+    </footer>
+    
+    <!-- Animation scripts -->
+    <script src="js/animations.js"></script>
+    
+    <!-- FAQ Functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ Toggle Functionality
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // Category Filtering
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    const category = button.dataset.category;
+                    
+                    // Show/hide FAQ items based on category
+                    faqItems.forEach(item => {
+                        if (category === 'all' || item.dataset.category === category) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Search Functionality
+            const searchInput = document.getElementById('faq-search-input');
+            
+            searchInput.addEventListener('input', () => {
+                const searchTerm = searchInput.value.toLowerCase();
+                
+                faqItems.forEach(item => {
+                    const question = item.querySelector('.faq-question h3').textContent.toLowerCase();
+                    const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+                    
+                    if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+                
+                // Reset category buttons if searching
+                if (searchTerm.length > 0) {
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    categoryButtons[0].classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

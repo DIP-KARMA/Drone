@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Droner - Premium Drone Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&f[]=general-sans@700,600,500,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/animations.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Space Grotesk', sans-serif;
+            color: white;
+            background: linear-gradient(135deg, #000000, #1a1a2e, #000000);
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjA1IiBkPSJNMCAwaDMwMHYzMDBIMHoiLz48L3N2Zz4=');
+            opacity: 0.4;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .futuristic-nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 15, 30, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 8px 20px;
+            width: 80%;
+            max-width: 1200px;
+            z-index: 1000;
+            border: 1px solid rgba(0, 204, 255, 0.15);
+            box-shadow: 0 0 20px rgba(0, 204, 255, 0.1);
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: white;
+            text-shadow: 0 0 8px rgba(0, 204, 255, 0.5);
+            letter-spacing: 0.05em;
+            text-decoration: none;
+        }
+        
+        .nav-brand-icon {
+            position: relative;
+            font-size: 1.1rem;
+            color: #00ccff;
+            text-shadow: 0 0 10px rgba(0, 204, 255, 0.8), 0 0 20px rgba(0, 204, 255, 0.4);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { text-shadow: 0 0 5px rgba(0, 204, 255, 0.5); }
+            50% { text-shadow: 0 0 15px rgba(0, 204, 255, 0.8); }
+            100% { text-shadow: 0 0 5px rgba(0, 204, 255, 0.5); }
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-family: 'General Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #00ccff;
+        }
+        
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 1px;
+            background: #00ccff;
+            box-shadow: 0 0 8px rgba(0, 204, 255, 0.8);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+        
+        .nav-links a.active {
+            color: #00ccff;
+        }
+        
+        .nav-links a.active::before {
+            width: 100%;
+        }
+        
+        .page-header {
+            padding-top: 150px;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .page-title {
+            font-family: 'Satoshi', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #22d3ee, #0ea5e9, #2563eb);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(0, 204, 255, 0.3);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ccff, transparent);
+            box-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
+        }
+        
+        .page-subtitle {
+            font-family: 'General Sans', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 700px;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+        
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 100px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .service-card {
+            background: rgba(15, 20, 40, 0.4);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(0, 204, 255, 0.2);
+            box-shadow: 0 0 30px rgba(0, 204, 255, 0.1), inset 0 0 30px rgba(0, 204, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transform: perspective(1000px) rotateY(5deg);
+        }
+        
+        .service-card:hover {
+            transform: perspective(1000px) rotateY(0deg) translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 204, 255, 0.2);
+            border-color: rgba(0, 204, 255, 0.3);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(0, 204, 255, 0.2), transparent 70%);
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: -1;
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: #00ccff;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(0, 204, 255, 0.7);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+            text-shadow: 0 0 20px rgba(0, 204, 255, 1);
+        }
+        
+        .service-title {
+            font-family: 'Satoshi', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: white;
+            letter-spacing: 0.05em;
+        }
+        
+        .service-description {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+        
+        .service-features {
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-family: 'General Sans', sans-serif;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .feature-icon {
+            color: #00ccff;
+            font-size: 0.8rem;
+        }
+        
+        .service-cta {
+            display: inline-block;
+            padding: 10px 25px;
+            background: rgba(0, 204, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 400;
+            font-size: 0.9rem;
+            border-radius: 50px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border: 1px solid rgba(0, 204, 255, 0.4);
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.2);
+            transition: all 0.3s ease;
+            align-self: flex-start;
+            margin-top: auto;
+        }
+        
+        .service-cta:hover {
+            background: rgba(0, 204, 255, 0.2);
+            border-color: rgba(0, 204, 255, 0.6);
+            box-shadow: 0 0 20px rgba(0, 204, 255, 0.4);
+            transform: translateY(-3px);
+        }
+        
+        .service-cta i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-cta:hover i {
+            transform: translateX(5px);
+        }
+        
+        .footer {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 30px 0;
+            text-align: center;
+            font-family: 'General Sans', sans-serif;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="futuristic-nav">
+        <a href="index.html" class="nav-brand"><i class="fas fa-drone nav-brand-icon"></i> DRONER</a>
+        <ul class="nav-links">
+            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="fleet.html">Fleet</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="booking.html">Bookings</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1 class="page-title">Premium Drone Services</h1>
+        <p class="page-subtitle">Discover our range of high-end drone services designed to meet your specific needs with unparalleled precision and cutting-edge technology.</p>
+    </header>
+    
+    <!-- Services Section -->
+    <div class="services-container">
+        <!-- Aerial Photography -->
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-camera"></i></div>
+            <h2 class="service-title">Aerial Photography</h2>
+            <p class="service-description">Capture stunning high-resolution aerial images with our state-of-the-art drones equipped with professional-grade cameras. Perfect for real estate, landscapes, events, and more.</p>
+            <div class="service-features">
+                <div class="feature-item">
+                    <i class="fas fa-check-circle feature-icon"></i>
+                    <span>4K & 8K Resolution</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle feature-icon"></i>
+                    <span>RAW Format Available</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle feature-icon"></i>
+                    <span>Professional Post-Processing</span>
+                </div>
+            </div>
+            <a href="booking.html" class="service-cta">Book Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <!-- Aerial Videography -->
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-film"></i></div>
+            <h2 class="service-title">Aerial Videography</h2>
+            <p class="service-description">Create cinematic aerial footage with our professional drone videography services. Ideal for films, commercials, events, and promotional content.</p>
+            <div class="service-features">
+                <div class="feature-item">
+                    <i class="fas fa-check-circle feature-icon"></i>
+                    <span>4K & 8K Video Capture</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle feature-icon"></i>
+                    <span>Cinematic Flight Patterns</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle feature-icon"></i>
+                    <span>Professional Editing Services</span>
+                </div>
+            </div>
+            <a href="booking.html" class="service-cta">Book Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <!-- Real Estate -->
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-home"></i></div>
+            <h2 class="service-title">Real Estate Showcase</h2>
+            <p class="service-description">Elevate your property listings with stunning aerial photography and videography that highlights the property's features, surroundings, and unique selling points.</p>
+            <div class="service-features">
+                <div class="feature-item">
+                    <i class="fas fa-check-circle feature-icon"></i>
+                    <span>Property Boundary Visualization</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle feature-icon"></i>
+                    <span>Neighborhood Context Shots</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle feature-icon"></i>
+                    <span>Interior-Exterior Transitions</span>
+                </div>
+            </div>
+            <a href="booking.html" class="service-cta">Book Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <!-- Mapping & Surveying -->
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-map-marked-alt"></i></div>
+            <h2 class="service-title">Mapping & Surveying</h2>
+            <p class="service-description">Generate accurate topographic maps, 3D models, and orthomosaic maps for construction, agriculture, and land development projects with our precision mapping services.</p>
+            <div class="service-features">
+                <div class="feature-item">
+                    <i class="fas fa-check-circle feature-icon"></i>
+                    <span>Centimeter-Level Accuracy</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle feature-icon"></i>
+                    <span>3D Point Cloud Generation</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle feature-icon"></i>
+                    <span>GIS Data Integration</span>
+                </div>
+            </div>
+            <a href="booking.html" class="service-cta">Book Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <!-- Inspection Services -->
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-search"></i></div>
+            <h2 class="service-title">Inspection Services</h2>
+            <p class="service-description">Safely inspect infrastructure, buildings, towers, and industrial facilities with our specialized inspection drones equipped with thermal and zoom cameras.</p>
+            <div class="service-features">
+                <div class="feature-item">
+                    <i class="fas fa-check-circle feature-icon"></i>
+                    <span>Thermal Imaging Available</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle feature-icon"></i>
+                    <span>Detailed Inspection Reports</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle feature-icon"></i>
+                    <span>Hard-to-Access Areas Coverage</span>
+                </div>
+            </div>
+            <a href="booking.html" class="service-cta">Book Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <!-- Event Coverage -->
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-calendar-alt"></i></div>
+            <h2 class="service-title">Event Coverage</h2>
+            <p class="service-description">Capture your special events from a unique perspective with our event coverage services. Perfect for weddings, concerts, sports events, and corporate gatherings.</p>
+            <div class="service-features">
+                <div class="feature-item">
+                    <i class="fas fa-check-circle feature-icon"></i>
+                    <span>Live Streaming Capability</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle feature-icon"></i>
+                    <span>Crowd & Venue Shots</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check-circle feature-icon"></i>
+                    <span>Same-Day Highlight Delivery</span>
+                </div>
+            </div>
+            <a href="booking.html" class="service-cta">Book Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Droner. All rights reserved.</p>
+    </footer>
+    
+    <!-- Animation scripts -->
+    <script src="js/animations.js"></script>
+</body>
+</html>

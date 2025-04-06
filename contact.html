@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Droner - Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&f[]=general-sans@700,600,500,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/animations.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Space Grotesk', sans-serif;
+            color: white;
+            background: linear-gradient(135deg, #000000, #1a1a2e, #000000);
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjA1IiBkPSJNMCAwaDMwMHYzMDBIMHoiLz48L3N2Zz4=');
+            opacity: 0.4;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .futuristic-nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 15, 30, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 8px 20px;
+            width: 80%;
+            max-width: 1200px;
+            z-index: 1000;
+            border: 1px solid rgba(0, 204, 255, 0.15);
+            box-shadow: 0 0 20px rgba(0, 204, 255, 0.1);
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: white;
+            text-shadow: 0 0 8px rgba(0, 204, 255, 0.5);
+            letter-spacing: 0.05em;
+            text-decoration: none;
+        }
+        
+        .nav-brand-icon {
+            position: relative;
+            font-size: 1.1rem;
+            color: #00ccff;
+            text-shadow: 0 0 10px rgba(0, 204, 255, 0.8), 0 0 20px rgba(0, 204, 255, 0.4);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { text-shadow: 0 0 5px rgba(0, 204, 255, 0.5); }
+            50% { text-shadow: 0 0 15px rgba(0, 204, 255, 0.8); }
+            100% { text-shadow: 0 0 5px rgba(0, 204, 255, 0.5); }
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-family: 'General Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #00ccff;
+        }
+        
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #00ccff;
+            box-shadow: 0 0 5px rgba(0, 204, 255, 0.5);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+        
+        .nav-links a.active {
+            color: #00ccff;
+        }
+        
+        .nav-links a.active::before {
+            width: 100%;
+        }
+        
+        .page-header {
+            padding-top: 150px;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .page-title {
+            font-family: 'Satoshi', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #ffffff, #00ccff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ccff, transparent);
+            box-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
+        }
+        
+        .page-subtitle {
+            font-family: 'General Sans', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 700px;
+            margin: 30px auto 0;
+        }
+        
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto 100px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-form-container {
+            background: rgba(15, 20, 40, 0.4);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(0, 204, 255, 0.2);
+            box-shadow: 0 0 30px rgba(0, 204, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-form-container::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 100px;
+            height: 100px;
+            background: rgba(0, 204, 255, 0.1);
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: -1;
+        }
+        
+        .contact-form-container::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 100px;
+            height: 100px;
+            background: rgba(0, 204, 255, 0.1);
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: -1;
+        }
+        
+        .contact-form-title {
+            font-family: 'Satoshi', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: white;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-family: 'General Sans', sans-serif;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(15, 20, 40, 0.6);
+            border: 1px solid rgba(0, 204, 255, 0.2);
+            border-radius: 8px;
+            color: white;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: rgba(0, 204, 255, 0.6);
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.3);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: rgba(0, 204, 255, 0.15);
+            color: white;
+            text-decoration: none;
+            font-family: 'General Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 50px;
+            border: 1px solid rgba(0, 204, 255, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .submit-btn:hover {
+            background: rgba(0, 204, 255, 0.2);
+            border-color: rgba(0, 204, 255, 0.6);
+            box-shadow: 0 0 20px rgba(0, 204, 255, 0.4);
+            transform: translateY(-3px);
+        }
+        
+        .submit-btn i {
+            transition: transform 0.3s ease;
+        }
+        
+        .submit-btn:hover i {
+            transform: translateX(5px);
+        }
+        
+        .contact-info {
+            background: rgba(15, 20, 40, 0.4);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(0, 204, 255, 0.2);
+            box-shadow: 0 0 30px rgba(0, 204, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-info-title {
+            font-family: 'Satoshi', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: white;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: #00ccff;
+            text-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
+            margin-top: 5px;
+        }
+        
+        .contact-text {
+            flex: 1;
+        }
+        
+        .contact-label {
+            font-family: 'General Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 5px;
+        }
+        
+        .contact-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.5;
+        }
+        
+        .contact-value a {
+            color: #00ccff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-value a:hover {
+            text-decoration: underline;
+            text-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 204, 255, 0.1);
+            border-radius: 50%;
+            color: #00ccff;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 204, 255, 0.2);
+        }
+        
+        .social-link:hover {
+            background: rgba(0, 204, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 204, 255, 0.3);
+        }
+        
+        .map-container {
+            grid-column: 1 / -1;
+            background: rgba(15, 20, 40, 0.4);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(0, 204, 255, 0.2);
+            box-shadow: 0 0 30px rgba(0, 204, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            height: 400px;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+        }
+        
+        .footer {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 30px 0;
+            text-align: center;
+            font-family: 'General Sans', sans-serif;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form-container, .contact-info {
+                padding: 30px;
+            }
+            
+            .page-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="futuristic-nav">
+        <a href="index.html" class="nav-brand"><i class="fas fa-drone nav-brand-icon"></i> DRONER</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="casestudies.html">Case Studies</a></li>
+            <li><a href="career.html">Careers</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1 class="page-title">Contact Us</h1>
+        <p class="page-subtitle">Have questions or ready to start your drone project? Reach out to our team and we'll get back to you promptly.</p>
+    </header>
+    
+    <!-- Contact Section -->
+    <div class="contact-container">
+        <!-- Contact Form -->
+        <div class="contact-form-container">
+            <h2 class="contact-form-title">Send Us a Message</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name" class="form-label">Your Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="Enter your email address" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number">
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject" class="form-label">Subject</label>
+                    <select id="subject" class="form-control" required>
+                        <option value="" disabled selected>Select a subject</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="booking">Service Booking</option>
+                        <option value="support">Technical Support</option>
+                        <option value="partnership">Partnership Opportunity</option>
+                        <option value="feedback">Feedback</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message" class="form-label">Your Message</label>
+                    <textarea id="message" class="form-control" placeholder="Type your message here..." required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    Send Message
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+        
+        <!-- Contact Information -->
+        <div class="contact-info">
+            <h2 class="contact-info-title">Get in Touch</h2>
+            
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt contact-icon"></i>
+                <div class="contact-text">
+                    <div class="contact-label">Our Location</div>
+                    <div class="contact-value">
+                        Droner Headquarters<br>
+                        123 Tech Park, Sector 5<br>
+                        Bangalore, Karnataka 560001<br>
+                        India
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <i class="fas fa-phone-alt contact-icon"></i>
+                <div class="contact-text">
+                    <div class="contact-label">Phone Numbers</div>
+                    <div class="contact-value">
+                        General: <a href="tel:+919876543210">+91 98765 43210</a><br>
+                        Support: <a href="tel:+919876543211">+91 98765 43211</a><br>
+                        Bookings: <a href="tel:+919876543212">+91 98765 43212</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <i class="fas fa-envelope contact-icon"></i>
+                <div class="contact-text">
+                    <div class="contact-label">Email Addresses</div>
+                    <div class="contact-value">
+                        Info: <a href="mailto:info@droner.in">info@droner.in</a><br>
+                        Support: <a href="mailto:support@droner.in">support@droner.in</a><br>
+                        Bookings: <a href="mailto:bookings@droner.in">bookings@droner.in</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <i class="fas fa-clock contact-icon"></i>
+                <div class="contact-text">
+                    <div class="contact-label">Operating Hours</div>
+                    <div class="contact-value">
+                        Monday - Friday: 9:00 AM - 6:00 PM<br>
+                        Saturday: 10:00 AM - 4:00 PM<br>
+                        Sunday: Closed
+                    </div>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        
+        <!-- Map -->
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.9989192054!2d77.63748!3d12.9783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU4JzQxLjkiTiA3N8KwMzgnMTUuMCJF!5e0!3m2!1sen!2sin!4v1625046563831!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Droner. All rights reserved.</p>
+    </footer>
+    
+    <!-- Animation scripts -->
+    <script src="js/animations.js"></script>
+    
+    <!-- Contact Form Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                
+                // In a real application, you would send this data to a server
+                // For now, we'll just show a success message
+                
+                // Create success message
+                const successMessage = document.createElement('div');
+                successMessage.style.padding = '15px';
+                successMessage.style.marginTop = '20px';
+                successMessage.style.backgroundColor = 'rgba(0, 255, 128, 0.1)';
+                successMessage.style.borderRadius = '8px';
+                successMessage.style.border = '1px solid rgba(0, 255, 128, 0.3)';
+                successMessage.style.color = '#00ff80';
+                successMessage.style.textAlign = 'center';
+                successMessage.innerHTML = `<i class="fas fa-check-circle" style="margin-right: 10px;"></i> Thank you, ${name}! Your message has been sent successfully. We'll get back to you shortly.`;
+                
+                // Clear form
+                contactForm.reset();
+                
+                // Add success message to form
+                contactForm.appendChild(successMessage);
+                
+                // Remove success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.opacity = '0';
+                    successMessage.style.transition = 'opacity 0.5s ease';
+                    
+                    setTimeout(() => {
+                        contactForm.removeChild(successMessage);
+                    }, 500);
+                }, 5000);
+            });
+        });
+    </script>
+</body>
+</html>
